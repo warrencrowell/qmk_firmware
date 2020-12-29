@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | LCtrl|      |      | LAlt | LGui |                                       |   [  |   ]  |      |      |  L2  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |      |MPrev |       |MNext |      |
+ *                                        |Layer4|MPrev |       |MNext |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
  *                                 |LGui  |LAlt  |------|       |------| L1   |Space |
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTRL       , KC_A           , KC_S           , KC_D           , KC_F           , KC_G           ,
     KC_LSHIFT      , CTL_T(KC_Z)    , KC_X           , KC_C           , KC_V           , KC_B           , ALL_T(KC_NO)        ,
     KC_LCTRL       , KC_TRANSPARENT , KC_TRANSPARENT , KC_LALT        , KC_LGUI        ,
-                                                                KC_TRANSPARENT, KC_MEDIA_PREV_TRACK,
+                                                                DF(4)         , KC_MEDIA_PREV_TRACK,
                                                                                      KC_TRANSPARENT,
                                                        KC_LGUI, KC_LALT       ,               MO(3),
 
@@ -201,6 +201,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT , KC_TRANSPARENT ,
     KC_TRANSPARENT ,
     KC_TRANSPARENT , KC_TRANSPARENT , KC_TRANSPARENT
+),
+/* Keymap 4: Gaming layer (space on left thumb)
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |  ESC   |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |  Bksp  |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |  TAB   |   Q  |   W  |   E  |   R  |   T  |      |           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * |--------+------+------+------+------+------| -    |           |  =   |------+------+------+------+------+--------|
+ * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |Hyper |           |  `   |   N  |   M  |   ,  |   .  |   /  |Shft/Ent|
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | LCtrl|      |      | LAlt | LGui |                                       |   [  |   ]  |      |      |  L2  |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |Layer0|MPrev |       |MNext |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |Space |LAlt  |------|       |------| L1   |Space |
+ *                                 |      |      |  L3  |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+  [4] = LAYOUT_ergodox(
+    KC_ESCAPE      , KC_1           , KC_2           , KC_3           , KC_4           , KC_5           , KC_TRANSPARENT      ,
+    KC_TAB         , KC_Q           , KC_W           , KC_E           , KC_R           , KC_T           , KC_MINUS            ,
+    KC_LCTRL       , KC_A           , KC_S           , KC_D           , KC_F           , KC_G           ,
+    KC_LSHIFT      , CTL_T(KC_Z)    , KC_X           , KC_C           , KC_V           , KC_B           , ALL_T(KC_NO)        ,
+    KC_LCTRL       , KC_TRANSPARENT , KC_TRANSPARENT , KC_LALT        , KC_LGUI        ,
+                                                                DF(0)         , KC_MEDIA_PREV_TRACK,
+                                                                                     KC_TRANSPARENT,
+                                                     KC_SPACE,  KC_LALT       ,               MO(3),
+
+    KC_TRANSPARENT , KC_6                , KC_7           , KC_8           , KC_9           , KC_0             , KC_BSPACE ,
+    KC_EQUAL       , KC_Y                , KC_U           , KC_I           , KC_O           , KC_P             , KC_BSLASH ,
+                     KC_H                , KC_J           , KC_K           , KC_L           , KC_SCOLON        , KC_QUOTE  ,
+    KC_GRAVE       , KC_N                , KC_M           , KC_COMMA       , KC_DOT         , RCTL_T(KC_SLASH) , KC_SFTENT ,
+    KC_LBRACKET    , KC_RBRACKET         , KC_TRANSPARENT , KC_TRANSPARENT , MO(2)          ,
+    KC_MEDIA_NEXT_TRACK , KC_TRANSPARENT ,
+    KC_TRANSPARENT ,
+    KC_TRANSPARENT , MO(1)               , KC_SPACE
 ),
 
 };
